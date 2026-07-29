@@ -783,6 +783,28 @@ document.querySelectorAll('.rippleBtn').forEach(btn=>{
   });
 });
 
+<script>
+/* Add internship certificate cards dynamically so modal code picks them up */
+(function(){
+  const grid = document.querySelector('.cert-grid');
+  if(!grid) return;
+  const certs = [
+    {img: 'assets/certificates/internship1.jpeg', tag: 'Internship', title: 'Internship — Newmak Technology', org: 'Newmak Technology', desc: 'Full Stack development (16.06.2026 - 30.06.2026)'},
+    {img: 'assets/certificates/internship2.png', tag: 'Internship', title: 'Internship — Extol Tech Solution', org: 'Extol Tech Solution', desc: 'Web Design (15.12.2025 - 30.12.2025)'}
+  ];
+  certs.forEach(c=>{
+    const d = document.createElement('div');
+    d.className = 'cert-card glass tilt reveal';
+    d.setAttribute('data-img', c.img);
+    d.setAttribute('data-tag', c.tag);
+    d.setAttribute('data-title', c.title);
+    d.setAttribute('data-org', c.org);
+    d.setAttribute('data-desc', c.desc);
+    grid.appendChild(d);
+  });
+})();
+</script>
+
 /* ---------- certificate modal ---------- */
 const overlay = document.getElementById('modalOverlay');
 const modalImg = document.getElementById('modalImg');
